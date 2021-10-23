@@ -59,6 +59,7 @@ class Voter():
         else:
             self.authenticated = False
 
+#Data manipulation
 def initializeUser(name, party):
     '''Initialize a voter given the voters name and party'''
     user = Voter()
