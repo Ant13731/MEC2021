@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image
 import pytesseract
 import os
-from tabulate import tabulate #doesnt work in vscode for some reason, only IDLE
+from tabulate import tabulate
 
 HEIGHT = 1000
 WIDTH = 1200
