@@ -7,8 +7,7 @@ WIDTH = 1200
 
 def readVotesFromFile():
     '''Takes in a csv file of all the voters and then sorts them into a dictionary for convenience.'''
-    #Replace filepath with MEC Competition Voting Data.csv
-    with open("C:\\Users\\Ant13731\\Desktop\\Anthony McMaster Main\\Fall 2021\\MEC\\MEC Competition Voting Data.csv", "r") as myFile:
+    with open("MEC Competition Voting Data.csv", "r") as myFile:
         read = csv.reader(myFile)
         dataTable = []
         for row in read:
@@ -40,6 +39,7 @@ class Voter():
     def vote(self, party):
         self.votingParty = party
     def checkAuthentication(self):
+        #authenticator currently defaults to true. See README for more details
         if self.name in authenticatedNames:
             self.authenticated = True
         else:
@@ -87,7 +87,7 @@ def displayVoteCount(d):
     # formatVotes = tabulate(l, headers="firstrow")
     # and comment this out too when the change is made
 
-    #Uncomment if tabulate is not installed (not as nice of a format, but will always work)
+    #Uncomment and use above if tabulate is not installed (not as nice of a format, but will always work)
     formatVotes = ''
     for entry in l:
         formatVotes += entry[0] + " | " + str(entry[1]) + '\n'
@@ -154,7 +154,6 @@ titleLabel['text'] = "Vote For a Candidate!"
 inputButtonFrame = tk.Frame(root, bg='#a5f0f0', bd=5)
 inputButtonFrame.place(relx=0.3, rely=0.175, relwidth=0.35, relheight=0.05, anchor='n')
 
-#TODO authenticate too
 loginButton = tk.Button(inputButtonFrame, text= "Authenticate and Vote!", bg='#5390D9', fg='black', font=('Courier',20), command=lambda : authenticateAndVote(username.get(), voteParty.get(), voterDatabase))
 loginButton.place(relheight=1, relwidth=1)
 
